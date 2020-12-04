@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+           <a routerLink="/users/salvar" class="btn btn-success">Novo</a>
+           <table class="table table-striped table-hover">   
+               <thead>
+                   <tr>
+                     <th>Nome</th>
+                     <th>Email</th>
+                     <th>CPF</th>
+                     <th>Deletar</th>
+                   </tr>
+               </thead>
+               <tbody>  
+                <tr *ngFor = "let u of users" [routerLink]= "['/users/salvar',u.id]">
+                    <td>{{u.name}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.cpf}}</td>
+                         <td><button class="btn btn-danger" (click)="onDelete(u); $event.stopPropagation()">Deletar</button></td>
+                       </tr>
+               </tbody>
+           </table>
+       </div>
+    </div>
+ </div>

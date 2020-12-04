@@ -1,0 +1,26 @@
+<div class="container"> 
+    <h2>Salvar Usuário</h2>
+    <form (ngSubmit) = "onSubmit()" #usersForm = 'ngForm' novalidate>
+        <div [ngClass]="getFormGroupClass(name.valid,name.pristine)">
+            <label for="name" class="form-control-label">Nome</label>
+            <input type="text" class="form-control form-control-danger" placeholder="Informe o nome" required [ngClass]="getFormControlClass(name.valid, name.pristine)" #name="ngModel" name="name" [(ngModel)]="users.name">
+            <div class="form-control-feedback" [hidden]="name.valid || name.pristine">O campo deve ser preenchido</div>
+        </div>
+       
+        <div [ngClass]="getFormGroupClass(email.valid, email.pristine)">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" placeholder="Informe o email" [ngClass]="getFormControlClass(email.valid, email.pristine)"  required  #email="ngModel" name="email" [(ngModel)]="users.email">
+            <div class="form-control-feedback" [hidden]="email.valid || email.pristine">O campo email deve ser preenchido</div>
+        </div>
+       
+        <div [ngClass]="getFormGroupClass(cpf.valid,cpf.pristine)">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" placeholder="Informe seu CPF" required [ngClass]="getFormControlClass(cpf.valid,cpf.pristine)" #cpf="ngModel" name="cpf" [(ngModel)]="users.cpf">
+            <div class="form-control-feedback" [hidden]="cpf.valid || cpf.pristine">O campo cpf deve ser preenchido</div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!usersForm.form.valid">Salvar</button>
+         <a class="btn btn-secondary" routerLink="/">Voltar </a>
+    </form>
+    </div>
+
+  
